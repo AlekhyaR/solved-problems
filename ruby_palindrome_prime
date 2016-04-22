@@ -1,0 +1,17 @@
+def is_palindrome?(number)
+  number = number.to_s.reverse.to_i
+end
+
+def find_first_n_primes(n)
+  primes = [2]
+  i = 3
+  # print first n primes
+  while primes.length < n
+    #checks if i is divisible by any of the elements in the array
+    primes << i unless primes.any? { |n| i % n == 0 }
+    i += 1
+  end
+  # deletes all non-palindromic primes
+  primes.delete_if { |n| is_palindrome?(n) == false}
+  puts "#{primes}"
+end

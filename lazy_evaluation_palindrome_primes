@@ -1,0 +1,10 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+require 'prime'
+limit = gets
+limit = limit.to_i
+
+palindromic_nums = -> (limit) do
+    1.upto(Float::INFINITY).lazy.select { |num| num.to_s.reverse == num.to_s && Prime.prime?(num) }.first(limit)
+end
+
+print palindromic_nums.(limit)
